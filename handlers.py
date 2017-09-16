@@ -4,14 +4,10 @@ class SessionHandler:
     def __init__(self, session_id):
         self.session_id = session_id
 
-    def get_or_create(self, phone_number=None, service_code=None, operator=None):
+    def get_or_create(self, **kwargs):
         return Session.objects.get_or_create(
             session_id=self.session_id,
-            defaults={
-                'phone_number': phone_number,
-                'service_code': service_code,
-                'operator': operator
-            }
+            defaults=kwargs
         )
 
     def set_init_message(self, message):
