@@ -19,6 +19,8 @@ class Session(models.Model):
     step_at_paged = models.PositiveSmallIntegerField(null=True)
     page_stop = models.PositiveSmallIntegerField(null=True)
     selector = models.PositiveSmallIntegerField(null=True)
+    actor_first_name = models.CharField(max_length=20)
+    actor_last_name = models.CharField(max_length=20)
 
     def __str__(self):
         return '%s - %s' % (self.phone_number, self.session_id)
